@@ -2,7 +2,8 @@ import * as Yup from 'yup'
 import { useFormik } from 'formik'
 import { useState } from 'react'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
-import { db } from '../../utils/firebase'
+import { auth, db } from '../../utils/firebase'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -22,16 +23,15 @@ const Contact = () => {
         .required('Required'),
     }),
     async onSubmit(data, formikHelpers) {
-      const messagesCollectionRef = collection(db, 'messages')
-      
-      const message = {
+      const payload = {
         name: data.name,
         email: data.email,
         message: data.message,
-        createdAt: serverTimestamp(),
+        timestamp: serverTimestamp()
       }
-      await addDoc(messagesCollectionRef, message)
-      setIsSubmitted(true)
+      const messageCollectionRef = collection(db, "messages")
+      await addDoc(messageCollectionRef, payload)
+
       formikHelpers.resetForm()
     },
   })

@@ -1,13 +1,18 @@
+import { signOut } from 'firebase/auth'
 import { useTheme } from 'next-themes'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { BsPerson } from 'react-icons/bs'
 import { HiX, HiMenu } from 'react-icons/hi'
+import { auth } from '../../utils/firebase'
 import SmallLogo from '../Logos/SmallLogo'
 
 const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useState(false)
   const { theme, setTheme } = useTheme()
   const router = useRouter()
+  const [user] = useAuthState(auth)
   return (
     <nav className="" id="sidebar">
       <div className="flex items-center justify-between">
@@ -30,7 +35,7 @@ const Sidebar = () => {
       </div>
 
       <div
-        className={`fixed top-0 right-0 z-40  h-full w-full bg-[#E0D7C2] pt-5 pl-10 text-black duration-300 ease-in-out  dark:bg-[#1F283D] dark:text-white ${
+        className={`fixed top-0 right-0 z-40  h-full w-full bg-[#E0D7C2] pt-5 pl-10 text-black duration-300 ease-in-out  dark:bg-[#181f30] dark:text-white ${
           showSidebar ? 'translate-x-0 ' : 'translate-x-full'
         }`}
       >
@@ -70,11 +75,6 @@ const Sidebar = () => {
           </h3>
         </section>
         <section>
-          <h3 className="mt-4 inline-block cursor-pointer text-xl font-semibold transition duration-300 ease-in-out hover:scale-110">
-            Login
-          </h3>
-        </section>
-        <section>
           <h3
             className="mt-4 inline-block cursor-pointer text-xl font-semibold transition duration-300 ease-in-out hover:scale-110"
             onClick={() => {
@@ -94,6 +94,24 @@ const Sidebar = () => {
             {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
           </h3>
         </div>
+        <section className='inline-block'>
+          <div
+            className=" 
+            flex text-xl mt-4  cursor-pointer items-center space-x-2 rounded-xl bg-[#1f283d] p-3 transition duration-300 ease-in-out
+         hover:scale-110"
+            //  @ts-ignore
+            onClick={() => {
+              if (!user) router.push('https://codingwhizz.org/portal')
+              else signOut(auth)
+            }}
+          >
+            <BsPerson size={30} />
+            <h2>
+              {user?.displayName}
+              {!user && 'Login'}
+            </h2>
+          </div>
+        </section>
       </div>
     </nav>
   )

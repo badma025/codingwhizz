@@ -1,7 +1,11 @@
 import { MoonIcon, SunIcon } from '@heroicons/react/solid'
+import { signOut } from 'firebase/auth'
 import { useTheme } from 'next-themes'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { BsPerson } from 'react-icons/bs'
+import { auth } from '../../utils/firebase'
 import BigLogo from '../Logos/BigLogo'
 
 const Navbar = () => {
@@ -10,6 +14,7 @@ const Navbar = () => {
   useEffect(() => {
     setTheme("dark")
   }, [])
+  const [user] = useAuthState(auth)
   
   return (
     <nav className="flex items-center justify-around" id="navbar">
@@ -17,7 +22,7 @@ const Navbar = () => {
         <BigLogo />
       </div>
 
-      <div className="flex justify-evenly space-x-7 text-xl">
+      <div className="flex items-center justify-evenly space-x-7 text-xl">
         <>
           <h3
             className="cursor-pointer transition duration-300 ease-in-out hover:scale-110"
@@ -47,6 +52,17 @@ const Navbar = () => {
             Projects
           </h3>
         </>
+        <div className='flex items-center p-3 rounded-xl bg-[#1f283d] space-x-2 transition duration-300 ease-in-out hover:scale-110
+         cursor-pointer' 
+        //  @ts-ignore
+         onClick={() => {
+          if(!user) router.push("https://codingwhizz.org/portal")
+          else signOut(auth)
+         }}>
+        <BsPerson size={30}/>
+         <h2>{user?.displayName}
+         {!user && "Login"}</h2>
+        </div>
       </div>
       <div className="flex">
         {theme === 'dark' ? (
