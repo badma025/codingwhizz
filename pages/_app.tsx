@@ -3,10 +3,6 @@ import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
 import {
   RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
 } from 'recoil'
 
 function MyApp({ Component, pageProps }: AppProps) {

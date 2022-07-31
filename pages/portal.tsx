@@ -1,12 +1,5 @@
-import { LockClosedIcon } from '@heroicons/react/solid'
 import { useRouter } from 'next/router'
 import React from 'react'
-import {
-  BsGithub,
-  BsLock,
-  BsPersonBadgeFill,
-  BsPersonCircle,
-} from 'react-icons/bs'
 import Header from '../components/Header'
 import Login from '../components/Login'
 import SignIn from '../components/SignIn'

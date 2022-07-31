@@ -5,7 +5,6 @@ import React, { useRef, useState } from 'react'
 import {
   useAuthState,
 } from 'react-firebase-hooks/auth'
-import { BsPersonCircle } from 'react-icons/bs'
 import { MdEmail } from 'react-icons/md'
 import { auth } from '../../utils/firebase'
 

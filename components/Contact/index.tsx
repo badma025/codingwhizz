@@ -2,8 +2,7 @@ import * as Yup from 'yup'
 import { useFormik } from 'formik'
 import { useState } from 'react'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
-import { auth, db } from '../../utils/firebase'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { db } from '../../utils/firebase'
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false)

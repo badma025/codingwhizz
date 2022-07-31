@@ -1,6 +1,4 @@
-import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
 
 const BigLogo = () => {
   const router = useRouter()

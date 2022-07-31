@@ -12,7 +12,6 @@ import { useFormik } from 'formik'
 import { auth, db } from '../../utils/firebase'
 import {
   createUserWithEmailAndPassword,
-  sendEmailVerification,
   updateProfile,
 } from 'firebase/auth'
 import { useRouter } from 'next/router'
