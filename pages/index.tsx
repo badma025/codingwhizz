@@ -20,11 +20,11 @@ const Home: NextPage = () => {
           name="description"
           content="A personal portfolio of Alim Badmus' coding projects"
         />
-        <Script
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2814752550503599"
           crossOrigin="anonymous"
-        ></Script>
+        ></script>
       </Head>
 
       <main
@@ -38,7 +38,7 @@ const Home: NextPage = () => {
         <Projects />
         <Other />
         <Contact />
-        <Footer/>
+        <Footer />
       </main>
     </html>
   )
