@@ -8,6 +8,8 @@ const Latest = () => {
         <h2 className="text-[#3a66ff]">High quality posts made with love :)</h2>
       </div>
 
+       
+
       <section className=" md:mx-auto mx-6  grid grid-cols-1 items-center justify-center gap-3 p-2 sm:grid-cols-2 md:gap-6 md:p-6 lg:grid-cols-3">
         <div
           className="

@@ -1,10 +1,10 @@
 import { NextPage } from "next"
 import { useTheme } from "next-themes"
-import Featured from "../../components/Featured"
-import Footer from "../../components/Footer"
-import Header from "../../components/Header"
-import Latest from "../../components/Latest"
-import Search from "../../components/Search"
+import Featured from "../../../components/Featured"
+import Footer from "../../../components/Footer"
+import Header from "../../../components/Header"
+import Latest from "../../../components/Latest"
+import Search from "../../../components/Search"
 
 
 

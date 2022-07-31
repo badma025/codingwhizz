@@ -17,8 +17,7 @@ const Register = () => {
       {isSubmitted ? (
         <div className="-mt-10 flex h-screen items-center justify-center lg:text-2xl text-lg md:text-xl text-[#3a6aff]">
           <h2>
-            Thanks for signing up! We've sent a verification email to your
-            inbox.
+            Thanks for signing up!
           </h2>
         </div>
       ) : (

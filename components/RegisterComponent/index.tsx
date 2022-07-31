@@ -45,7 +45,14 @@ const RegisterComponent = () => {
     }),
     async onSubmit(data, formikHelpers) {
 
-     await createUserWithEmailAndPassword(auth, data.email, data.password)
+      try {
+        await createUserWithEmailAndPassword(auth, data.email, data.password)
+        
+      } catch (error: any) {
+        if (error.code === 'auth/email-already-in-use') {
+         alert('Error: Email aready in use.')
+        }
+      }
      
 
 
@@ -57,6 +64,7 @@ const RegisterComponent = () => {
      setIsSubmitted(true) 
    },
      
+   
   })
   return (
     <div>

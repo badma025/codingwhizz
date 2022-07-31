@@ -11,8 +11,8 @@ const About = () => {
         <div className=" mt-12 flex  md:text-left text-center text-lg  sm:text-xl xl:w-1/2 ">
           <h2>
             Hello! My name is Alim and I enjoy creating things that live on the
-            internet. My passion for web development started at the age of 11,
-            after a computer on HTML and CSS. Since then, I’ve explored more
+            internet. My passion for web development sprouted at the age of 11,
+            after a computer science lesson on HTML and CSS. Since then, I’ve explored more
             into the world of web development with technologies such as{' '}
             <span className="text-[#3A66FF]">Next.js</span>,{' '}
             <span className="text-[#3A66FF]">Tailwind</span> and
