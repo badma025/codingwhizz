@@ -10,17 +10,20 @@ import { MdEmail } from 'react-icons/md'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
 import { auth, db } from '../../utils/firebase'
-import {
-  createUserWithEmailAndPassword,
-  updateProfile,
-} from 'firebase/auth'
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { useRouter } from 'next/router'
 import { useRecoilState } from 'recoil'
 import { isSubmittedState } from '../../atoms'
 import { useAuthState } from 'react-firebase-hooks/auth'
 
 const RegisterComponent = () => {
+  const [checked, setChecked] = useState(false)
+  const [emailError, setEmailError] = useState(false)
+  const [checkedError, setCheckedError] = useState(false)
+
   const [isSubmitted, setIsSubmitted] = useRecoilState(isSubmittedState)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
   const [user] = useAuthState(auth)
   const router = useRouter()
   const formik = useFormik({
@@ -43,27 +46,29 @@ const RegisterComponent = () => {
         .oneOf([Yup.ref('password'), null], 'Passwords must match'),
     }),
     async onSubmit(data, formikHelpers) {
+      setIsSubmitting(true)
+
+      if (!checked) {
+        setCheckedError(true)
+      }
 
       try {
         await createUserWithEmailAndPassword(auth, data.email, data.password)
-        
       } catch (error: any) {
         if (error.code === 'auth/email-already-in-use') {
-         alert('Error: Email aready in use.')
+          setEmailError(true)
         }
       }
-     
 
-
-     //  @ts-ignore
-     await updateProfile(auth.currentUser, {
-           displayName: data.username
+      //  @ts-ignore
+      await updateProfile(auth.currentUser, {
+        displayName: data.username,
       })
-     formikHelpers.resetForm()
-     setIsSubmitted(true) 
-   },
-     
-   
+      formikHelpers.resetForm()
+
+      setIsSubmitted(true)
+      setIsSubmitting(false)
+    },
   })
   return (
     <div>
@@ -186,13 +191,54 @@ const RegisterComponent = () => {
           </div>
         </label>
 
+        <div className="mx-10 mt-8 flex items-center justify-center  space-x-3   text-sm sm:mx-0 md:text-xl  ">
+          <input
+            type="checkbox"
+            checked={checked}
+            onChange={(e) => setChecked(e.target.checked)}
+            name=""
+            id="checkbox"
+            className=" h-3 w-3 md:h-6 md:w-6"
+            height={20}
+            width={20}
+          />
+          <h2>
+            By signing up, I agree with CodingWhizz's{' '}
+            <span
+              // @ts-ignore
+              onClick={() =>
+                router.push('https://codingwhizz.org/privacy-policy')
+              }
+              className="cursor-pointer text-[#3A6AFF]"
+            >
+              privacy policy
+            </span>
+            .
+          </h2>
+        </div>
+
         <button
+          disabled={isSubmitting}
           type="submit"
           className="mt-10 rounded-2xl bg-[#1f283d] px-6 py-3  transition duration-300 hover:scale-110 md:px-8 md:py-4"
         >
           <h2 className="text-sm md:text-xl">Register</h2>
         </button>
       </form>
+
+       <div className='mb-5 mt-3'>
+
+      {checkedError && (
+        <div className="sm:text-md mt-2 flex items-center justify-center text-sm text-red-500 md:text-lg ">
+          <h2>Have you accepted our privacy policy?</h2>
+        </div>
+      )}
+      {emailError && (
+        <div className=" sm:text-md mt-2 flex items-center justify-center text-sm text-red-500 md:text-lg ">
+          <h2>Email already in use. Please try again with a different email</h2>
+        </div>
+      )}
+       </div>
     </div>
   )
 }

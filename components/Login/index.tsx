@@ -15,6 +15,10 @@ const Login = () => {
   const [user] = useAuthState(auth)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
+  const [passwordError, setPasswordError] = useState(false)
+  const [emailError, setEmailError] = useState(false)
+  const [error, setError] = useState(false)
+
   const handleSubmit = async (e: any) => {
 
     e.preventDefault()
@@ -32,13 +36,13 @@ const Login = () => {
     
     } catch (error: any) {
       if (error.code === 'auth/wrong-password') {
-        alert('Error: Invalid password.')
+        setPasswordError(true)
       }
       if (error.code === "auth/invalid-email") {
-        alert("Error: Invalid email")
+        setEmailError(true)
       }
       else {
-        alert("Error: Invalid email and password.")
+        setError(true)
       }
     }
     setIsSubmitting(false)
@@ -80,6 +84,22 @@ const Login = () => {
       >
         <h2 className="text-xl">Login</h2>
       </button>
+
+      {passwordError && (
+        <div className="sm:text-md mt-2 flex items-center justify-center text-sm text-red-500 md:text-lg ">
+          <h2>Incorrect password. Please try again.</h2>
+        </div>
+      )}
+      {emailError && (
+        <div className=" sm:text-md mt-2 flex items-center justify-center text-sm text-red-500 md:text-lg ">
+          <h2>Incorrect email. Please try again.</h2>
+        </div>
+      )}
+      {error && (
+        <div className=" sm:text-md mt-2 flex items-center justify-center text-sm text-red-500 md:text-lg ">
+          <h2>Error. Please try again.</h2>
+        </div>
+      )}
     </div>
   )
 }

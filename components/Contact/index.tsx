@@ -6,6 +6,7 @@ import { db } from '../../utils/firebase'
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -22,16 +23,19 @@ const Contact = () => {
         .required('Required'),
     }),
     async onSubmit(data, formikHelpers) {
+      setIsSubmitting(true)
       const payload = {
         name: data.name,
         email: data.email,
         message: data.message,
-        timestamp: serverTimestamp()
+        timestamp: serverTimestamp(),
       }
-      const messageCollectionRef = collection(db, "messages")
+      const messageCollectionRef = collection(db, 'messages')
       await addDoc(messageCollectionRef, payload)
 
       formikHelpers.resetForm()
+      setIsSubmitted(true)
+      setIsSubmitting(false)
     },
   })
 
@@ -76,7 +80,6 @@ const Contact = () => {
                 placeholder="Name"
                 onChange={formik.handleChange}
                 value={formik.values.name}
-                onBlur={formik.handleBlur}
                 id="name"
               />
               {formik.errors.name && formik.touched.name ? (
@@ -88,7 +91,6 @@ const Contact = () => {
                 placeholder="Email"
                 onChange={formik.handleChange}
                 value={formik.values.email}
-                onBlur={formik.handleBlur}
                 id="email"
               />
               {formik.errors.email && formik.touched.email ? (
@@ -100,7 +102,6 @@ const Contact = () => {
                 placeholder="Message"
                 onChange={formik.handleChange}
                 value={formik.values.message}
-                onBlur={formik.handleBlur}
                 id="message"
               />
 
@@ -113,6 +114,7 @@ const Contact = () => {
               <button
                 type="submit"
                 className="mx-auto mt-10 flex cursor-pointer items-center justify-center rounded-full bg-[#E0D7C2] px-6 py-4  text-2xl transition duration-300 ease-in-out hover:scale-110 dark:bg-[#1F283D]"
+                disabled={isSubmitting}
               >
                 Say Hello
               </button>
