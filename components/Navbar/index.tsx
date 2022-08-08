@@ -12,10 +12,10 @@ const Navbar = () => {
   const { theme, setTheme } = useTheme()
   const router = useRouter()
   useEffect(() => {
-    setTheme("dark")
+    setTheme('dark')
   }, [])
   const [user] = useAuthState(auth)
-  
+
   return (
     <nav className="flex items-center justify-around" id="navbar">
       <div className="ml-6 hidden md:flex">
@@ -52,16 +52,20 @@ const Navbar = () => {
             Projects
           </h3>
         </>
-        <div className='flex items-center p-3 rounded-xl bg-[#1f283d] space-x-2 transition duration-300 ease-in-out hover:scale-110
-         cursor-pointer' 
-        //  @ts-ignore
-         onClick={() => {
-          if(!user) router.push("https://codingwhizz.org/portal")
-          else signOut(auth)
-         }}>
-        <BsPerson size={30}/>
-         <h2>{user?.displayName}
-         {!user && "Login"}</h2>
+        <div
+          className="flex cursor-pointer items-center space-x-2 rounded-xl bg-[#1f283d] p-3 transition duration-300 ease-in-out
+         hover:scale-110"
+          //  @ts-ignore
+          onClick={() => {
+            if (!user) router.push('https://codingwhizz.org/portal')
+            else signOut(auth)
+          }}
+        >
+          <BsPerson size={30} />
+          <h2>
+            {user?.displayName}
+            {!user && 'Login'}
+          </h2>
         </div>
       </div>
       <div className="flex">
