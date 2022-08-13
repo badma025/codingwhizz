@@ -5,7 +5,7 @@ import TechImages from '../TechImages'
 
 const Tech: NextPage = () => {
   return (
-    <section  className="mb-[30px]">
+    <section  className="mt-10 mb-[30px]">
       <section className="flex flex-col items-center justify-center xl:flex-row xl:space-x-5">
         <h1 className="mx-20 text-3xl font-semibold xl:justify-start">
           Tech Stack
