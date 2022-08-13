@@ -8,11 +8,11 @@ const Header: NextPage = () => {
 
   return (
     <section className="mt-6">
-      <nav className="lg:hidden">
+      <nav className="xl:hidden">
         <Sidebar />
       </nav>
 
-      <nav className="hidden lg:block">
+      <nav className="hidden xl:block">
         <Navbar />
       </nav>
     </section>

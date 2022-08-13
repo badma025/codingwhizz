@@ -14,7 +14,7 @@ const About = () => {
           <h2>
             Hello! My name is Alim and I enjoy creating things that live on the
             internet. My passion for web development sprouted at the age of 11,
-            after a computer science lesson on HTML and CSS. Since then, I’ve
+            after a computer science lesson on HTML and CSS. I very quickly became interested in coding and looked at YouTube tutorials on how to code cool web applications.  Since then, I’ve
             explored more into the world of web development with technologies
             such as <span className="text-[#3A66FF]">Next.js</span>,{' '}
             <span className="text-[#3A66FF]">Tailwind</span> and

@@ -1,3 +1,5 @@
+import { ArrowDownIcon } from '@heroicons/react/outline'
+import { ArrowNarrowDownIcon, ChevronDownIcon } from '@heroicons/react/solid'
 import { signOut } from 'firebase/auth'
 import { useTheme } from 'next-themes'
 import { useRouter } from 'next/router'
@@ -10,6 +12,7 @@ import SmallLogo from '../Logos/SmallLogo'
 
 const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useState(false)
+  const [moreOptions, setMoreOptions] = useState(false)
   const { theme, setTheme } = useTheme()
   const router = useRouter()
   const [user] = useAuthState(auth)
@@ -74,6 +77,7 @@ const Sidebar = () => {
             Contact
           </h3>
         </section>
+
         <section>
           <h3
             className="mt-4 inline-block cursor-pointer text-xl font-semibold transition duration-300 ease-in-out hover:scale-110"
@@ -94,10 +98,56 @@ const Sidebar = () => {
             {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
           </h3>
         </div>
-        <section className='inline-block'>
+
+        <section>
+          <div className="flex items-center space-x-1">
+            <div>
+              <h3 className="mt-4 inline-block cursor-pointer text-xl font-semibold transition duration-300 ease-in-out hover:scale-110">
+                More
+              </h3>
+            </div>
+
+            <div className="cursor-pointer">
+              <ChevronDownIcon
+                onClick={() => {
+                  setMoreOptions(!moreOptions)
+                }}
+                className="mt-4 h-7"
+              />
+            </div>
+          </div>
+
+          {moreOptions && (
+            <section className="ml-4 flex flex-col space-y-1 ">
+              <div className="mt-2">
+                <h3
+                  className="
+                 inline-block cursor-pointer text-lg font-semibold transition duration-300 ease-in-out hover:scale-110"
+                  onClick={() =>
+                    router.push('https://codingwhizz.org/privacy-policy')
+                  }
+                >
+                  Privacy Policy
+                </h3>
+              </div>
+              <div className="">
+                <h3
+                  className=" inline-block cursor-pointer text-lg font-semibold transition duration-300 ease-in-out hover:scale-110"
+                  onClick={() =>
+                    router.push('https://codingwhizz.org/privacy-policy')
+                  }
+                >
+                  About
+                </h3>
+              </div>
+            </section>
+          )}
+        </section>
+
+        <section className="inline-block">
           <div
             className=" 
-            flex text-xl mt-4  cursor-pointer items-center space-x-2 rounded-xl bg-[#1f283d] p-3 transition duration-300 ease-in-out
+            mt-4 flex cursor-pointer  items-center space-x-2 rounded-xl bg-[#1f283d] p-3 text-xl transition duration-300 ease-in-out
          hover:scale-110"
             //  @ts-ignore
             onClick={() => {

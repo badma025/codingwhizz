@@ -6,8 +6,16 @@ const PrivacyPolicy = () => {
   return (
     <div>
       <Header />
+      <div className="flex flex-col items-center justify-center xl:flex-row xl:space-x-5 mt-10">
+        <div>
+          <h1 className=" mx-20 text-3xl font-semibold xl:justify-start">
+            Privacy
+          </h1>
+        </div>
+        <div className="mt-5 xl:mt-0 h-1 w-[200px]  rounded-full bg-[#646464]" />
+      </div>
 
-      <div className="mx-20 mt-10 max-w-4xl space-y-4 mb-10">
+      <div className="mx-20 mt-10 mb-10 max-w-4xl space-y-4">
         <h1 className="text-lg text-[#3a6aff] underline md:text-xl">
           Privacy Policy for CodingWhizz
         </h1>
@@ -241,7 +249,7 @@ const PrivacyPolicy = () => {
         </p>
       </div>
 
-      <Footer/>
+      <Footer />
     </div>
   )
 }

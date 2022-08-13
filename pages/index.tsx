@@ -32,7 +32,6 @@ const Home: NextPage = () => {
       >
         <Header />
         <Hero />
-        <About />
         <Tech />
         <Projects />
         <Other />
