@@ -8,6 +8,7 @@ import {sanityClient, urlFor} from "../../../sanity"
 import { HeartIcon as HeartIconFill } from '@heroicons/react/solid'
 import { HeartIcon as HeartIconOutline } from '@heroicons/react/outline'
 import Comments from '../../../components/Comments'
+import Head from 'next/head'
 
 
 interface Props {
@@ -23,7 +24,18 @@ interface IFormInput {
 const Post: NextPage<Props> = ({ post }): JSX.Element => {
   const [liked, setLiked] = useState(false)
   return (
+
     <main>
+       <Head>
+        <title>{post.title}</title>
+
+        <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content={post.description}
+        />
+      
+      </Head>
       <Header />
 
       <div className="mx-auto mt-8 flex  max-w-3xl  flex-col text-lg font-semibold  tracking-wide ">
@@ -53,7 +65,7 @@ const Post: NextPage<Props> = ({ post }): JSX.Element => {
             />
           )}
 
-          <h2>69</h2>
+          <h2>{post.likes}</h2>
         </div>
 
         <div className="flex items-center justify-center ">

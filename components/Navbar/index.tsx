@@ -56,7 +56,8 @@ const Navbar = () => {
             </h3>
           </Link>
           <div
-            className="flex cursor-pointer items-center space-x-2 rounded-xl bg-[#1f283d] p-3 transition duration-300 ease-in-out
+            className="dark:bg-[#1f283f] flex cursor-pointer items-center space-x-2 rounded-xl
+bg-[#E0D7C2] p-3 transition duration-300 ease-in-out
          hover:scale-110"
             //  @ts-ignore
             onClick={() => {

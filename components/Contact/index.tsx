@@ -76,7 +76,9 @@ const Contact = () => {
             >
               <input
                 type="text"
-                className="h-[30px] w-[263px] rounded-lg py-6 px-5 outline-none dark:bg-[#1F283D] md:h-[45px] md:w-[370px] xl:h-[55px] xl:w-[475px]"
+                className="
+                h-[30px] w-[263px] rounded-lg
+                bg-[#E0D7C2] py-6 px-5 outline-none dark:bg-[#181f30]  md:h-[45px] md:w-[370px] xl:h-[55px] xl:w-[475px]"
                 placeholder="Name"
                 onChange={formik.handleChange}
                 value={formik.values.name}
@@ -87,7 +89,9 @@ const Contact = () => {
               ) : null}
               <input
                 type="text"
-                className="h-[30px] w-[263px] rounded-lg py-6 px-5 outline-none dark:bg-[#1F283D] md:h-[45px] md:w-[370px] xl:h-[55px] xl:w-[475px]"
+                className="
+                h-[30px] w-[263px]
+                rounded-lg bg-[#E0D7C2] py-6 px-5 outline-none dark:bg-[#181f30]  md:h-[45px] md:w-[370px] xl:h-[55px] xl:w-[475px]"
                 placeholder="Email"
                 onChange={formik.handleChange}
                 value={formik.values.email}
@@ -98,7 +102,7 @@ const Contact = () => {
               ) : null}
               <textarea
                 rows={9}
-                className=" w-[263px] rounded-lg py-5 px-5 outline-none scrollbar-hide  dark:bg-[#1F283D]  md:w-[370px] xl:w-[475px]"
+                className=" w-[263px] rounded-lg bg-[#E0D7C2] py-5 px-5 outline-none  scrollbar-hide dark:bg-[#181f30]  md:w-[370px] xl:w-[475px]"
                 placeholder="Message"
                 onChange={formik.handleChange}
                 value={formik.values.message}

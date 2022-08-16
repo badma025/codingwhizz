@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Script from 'next/script'
 import About from '../components/About'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
@@ -19,11 +20,7 @@ const Home: NextPage = () => {
           name="description"
           content="A personal portfolio of Alim Badmus' coding projects"
         />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2814752550503599"
-          crossOrigin="anonymous"
-        ></script>
+      
       </Head>
 
       <main

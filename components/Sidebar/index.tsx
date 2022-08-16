@@ -18,14 +18,14 @@ const Sidebar = () => {
   const [user] = useAuthState(auth)
   return (
     <nav className="" id="sidebar">
-      <div className="flex items-center justify-between">
+      <div className=" flex items-center justify-between text-black dark:text-white">
         <div className="">
           <SmallLogo />
         </div>
 
         {showSidebar ? (
           <HiX
-            className="fixed right-10 top-6 z-50 flex h-10 cursor-pointer items-center text-4xl text-white active:-rotate-45"
+            className="fixed right-10 top-6 z-50 flex h-10 cursor-pointer items-center text-4xl text-black active:-rotate-45 dark:text-white"
             onClick={() => setShowSidebar(!showSidebar)}
           />
         ) : (
@@ -38,7 +38,7 @@ const Sidebar = () => {
       </div>
 
       <div
-        className={`fixed top-0 right-0 z-40  h-full w-full bg-[#E0D7C2] pt-5 pl-10 text-black duration-300 ease-in-out  dark:bg-[#181f30] dark:text-white ${
+        className={`dark:bg-[#181f30] fixed top-0 right-0  z-40 h-full w-full bg-[#E7E0CF] pt-5 pl-10 text-black duration-300 ease-in-out   dark:text-white ${
           showSidebar ? 'translate-x-0 ' : 'translate-x-full'
         }`}
       >
@@ -147,8 +147,8 @@ const Sidebar = () => {
         <section className="inline-block">
           <div
             className=" 
-            mt-4 flex cursor-pointer  items-center space-x-2 rounded-xl bg-[#1f283d] p-3 text-xl transition duration-300 ease-in-out
-         hover:scale-110"
+            mt-4 flex cursor-pointer  items-center space-x-2 rounded-xl bg-[#E0D7C2] p-3 text-xl transition duration-300 ease-in-out hover:scale-110
+         dark:bg-[#1f283d]"
             //  @ts-ignore
             onClick={() => {
               if (!user) router.push('https://codingwhizz.org/portal')

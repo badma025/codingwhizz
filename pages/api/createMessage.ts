@@ -16,16 +16,10 @@ export default async function createMessage(
   res: NextApiResponse
 ): Promise<void> {
   // we parse the request body to destructure all these values which we can work with
-  const { name, email, message } = JSON.parse(req.body)
+  const { likes, _id } = JSON.parse(req.body)
 
   try {
-    // creating a new post in the sanity CMS
-    await client.create({
-      _type: 'message',
-      name,
-      email,
-      message,
-    })
+   
   } catch (error) {
     return res.status(500).json({ message: "Couldn't submit message.", error })
   }
