@@ -1,9 +1,8 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
-import {
-  RecoilRoot,
-} from 'recoil'
+import { RecoilRoot } from 'recoil'
+import '../styles/prism.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

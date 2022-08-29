@@ -7,7 +7,7 @@ const BigLogo = () => {
     // @ts-ignore
     onClick={() => router.push("https://codingwhizz.org")}>
 
-      <h1>&lt;codingwhizz/&gt;</h1>
+      <p>&lt;codingwhizz/&gt;</p>
     </div>
   )
 }

@@ -10,7 +10,7 @@ const SmallLogo = () => {
       // @ts-ignore
       onClick={() => router.push('https://codingwhizz.org')}
     >
-      <h1>&lt;/&gt;</h1>
+      <p>&lt;/&gt;</p>
     </div>
   )
 }

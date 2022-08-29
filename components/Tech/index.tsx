@@ -5,15 +5,15 @@ import TechImages from '../TechImages'
 
 const Tech: NextPage = () => {
   return (
-    <section  className="mt-10 mb-[30px]">
+    <section  className="mt-16 mb-[30px]">
       <section className="flex flex-col items-center justify-center xl:flex-row xl:space-x-5">
-        <h1 className="mx-20 text-3xl font-semibold xl:justify-start">
+        <p className="mx-20 text-3xl font-semibold xl:justify-start">
           Tech Stack
-        </h1>
+        </p>
         <div className="mt-5 h-1 w-[200px]  rounded-full bg-[#646464]" />
       </section>
       <header className="mt-14 flex items-center justify-center text-center text-lg  sm:text-xl ">
-        <h2> I have worked with the following technologies:</h2>
+        <p> I have worked with the following technologies:</p>
       </header>
       <TechImages />
     </section>

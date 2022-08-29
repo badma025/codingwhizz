@@ -7,7 +7,7 @@ import { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { BsPerson } from 'react-icons/bs'
 import { HiX, HiMenu } from 'react-icons/hi'
-import { auth } from '../../utils/firebase'
+import { auth } from '../../utilities/firebase'
 import SmallLogo from '../Logos/SmallLogo'
 
 const Sidebar = () => {

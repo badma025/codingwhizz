@@ -15,12 +15,10 @@ const Chat = () => {
       </div>
       <div className="mr-6 -mt-5 flex justify-end space-x-2">
         <Link href="https://facebook-messenger.vercel.app/">
-          <a target="_blank" aria-label='Facebook'>
             <MdExitToApp
               className="mt-8 transition duration-300 hover:animate-bounce"
               size={30}
             />
-          </a>
         </Link>
       </div>
     </div>

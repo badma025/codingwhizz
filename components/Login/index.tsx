@@ -6,7 +6,7 @@ import {
   useAuthState,
 } from 'react-firebase-hooks/auth'
 import { MdEmail } from 'react-icons/md'
-import { auth } from '../../utils/firebase'
+import { auth } from '../../utilities/firebase'
 
 const Login = () => {
   const router = useRouter()

@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { BsPerson } from 'react-icons/bs'
-import { auth } from '../../utils/firebase'
+import { auth } from '../../utilities/firebase'
 import BigLogo from '../Logos/BigLogo'
 
 const Navbar = () => {

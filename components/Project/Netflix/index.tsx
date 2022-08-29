@@ -15,12 +15,10 @@ const Netflix = () => {
       </div>
       <div className="mr-6 -mt-5 flex justify-end space-x-2">
         <Link href="https://netflix-clone-a9cd7.web.app">
-          <a target="blank" aria-label="Netflix">
             <MdExitToApp
               className="mt-8 transition duration-300 hover:animate-bounce"
               size={30}
             />
-          </a>
         </Link>
       </div>
     </div>

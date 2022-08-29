@@ -15,12 +15,10 @@ const Quiz = () => {
       </div>
       <div className="mr-6 -mt-5 flex justify-end space-x-2">
         <Link href="https://fireblogsyt-a4d73.web.app/">
-          <a target="_blank" aria-label="React Quiz">
             <MdExitToApp
               className="mt-8 cursor-pointer transition duration-300 hover:animate-bounce"
               size={30}
             />
-          </a>
         </Link>
       </div>
     </div>

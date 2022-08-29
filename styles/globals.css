@@ -2,15 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
 html {
   scroll-behavior: smooth;
 }
 
-
 @layer base {
-  body {
-    @apply dark:bg-[#181f30] bg-[#E7E0CF];
+  pre {
+    @apply my-8;
   }
+  body {
+    @apply bg-[#E7E0CF] dark:bg-[#181f30];
+  }
+  h4 {
+    @apply mt-8 mb-2 text-lg font-semibold md:text-xl;
+  }
+  a {
+    @apply text-[#3a6aff];
+  }
+}
+.remark-code-title {
+  @apply rounded-t border border-b-0 border-gray-200 bg-gray-200 px-5 py-3 font-mono text-sm font-bold text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200;
 }
