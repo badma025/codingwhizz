@@ -4,7 +4,7 @@ import RegisterComponent from '../components/RegisterComponent'
 import { useRouter } from 'next/router'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../utilities/firebase'
-// @
+// @l
 import { useRecoilState } from 'recoil'
 import { isSubmittedState } from '../atoms'
 
