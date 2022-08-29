@@ -40,7 +40,7 @@ const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
 
 
   return (
-    <div>
+    <div className='mb-10'>
       <Header />
 
       <article className="mt-10 ml-10 mr-10 sm:mx-16 md:mx-24 lg:mx-32 xl:mx-40 ">
@@ -61,12 +61,12 @@ const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
         <div className="  mt-4 max-w-3xl ">
           <p className="">{frontMatter.description}</p>
         </div>
-        <div className="mt-10">
+        {/* <div className="mt-10">
           <img
             className="w-[230px] object-contain xl:w-[331px]"
             src={frontMatter.image}
           />
-        </div>
+        </div> */}
 
         <div className="mt-10">
             <MDXRemote {...source} components={components} />

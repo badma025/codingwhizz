@@ -55,7 +55,7 @@ const Sidebar = () => {
         </section>
         <section
           onClick={() => {
-            router.push('https://codingwhizz.org/blog')
+            router.push('https://codingwhizz.org/posts')
             setShowSidebar(false)
           }}
         >

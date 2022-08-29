@@ -87,9 +87,9 @@ bg-[#E0D7C2] p-3 transition duration-300 ease-in-out
           )}
         </div>
 
-        <Link href="https://codingwhizz.org/blog">
+        <Link href="https://codingwhizz.org/posts">
           <button
-            onClick={() => router.push('https://codingwhizz.org/blog')}
+            onClick={() => router.push('https://codingwhizz.org/posts')}
             className="mr-7 rounded-lg bg-[#F5F1E8] px-7 py-3 text-2xl font-semibold transition duration-300 ease-in-out hover:scale-[1.15] dark:bg-[#0A0E17]"
           >
             Blog
