@@ -1,7 +1,7 @@
 import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import React from 'react'
 import { BsGithub } from 'react-icons/bs'
-import { auth } from '../../utils/firebase'
+import { auth } from '../../utilities/firebase'
 
 
 const SignIn = () => {
