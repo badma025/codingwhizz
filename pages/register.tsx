@@ -3,7 +3,7 @@ import SignIn from '../components/SignIn'
 import RegisterComponent from '../components/RegisterComponent'
 import { useRouter } from 'next/router'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { auth } from '../utils/firebase'
+import { auth } from '../utilities/firebase'
 import { useRecoilState } from 'recoil'
 import { isSubmittedState } from '../atoms'
 
