@@ -144,7 +144,7 @@ const Sidebar = () => {
           )}
         </section>
 
-        <section className="inline-block">
+        {/* <section className="inline-block">
           <div
             className=" 
             mt-4 flex cursor-pointer  items-center space-x-2 rounded-xl bg-[#E0D7C2] p-3 text-xl transition duration-300 ease-in-out hover:scale-110
@@ -161,7 +161,7 @@ const Sidebar = () => {
               {!user && 'Login'}
             </h2>
           </div>
-        </section>
+        </section> */}
       </div>
     </nav>
   )

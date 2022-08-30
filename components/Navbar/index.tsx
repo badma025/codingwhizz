@@ -36,11 +36,6 @@ const Navbar = () => {
               Contact
             </h3>
           </Link>
-          <Link href="#">
-            <h3 className=" cursor-pointer transition duration-300 ease-in-out hover:scale-110">
-              Donate
-            </h3>
-          </Link>
           <Link href="https://codingwhizz.org/#projects">
             <h3
               className=" cursor-pointer transition duration-300 ease-in-out hover:scale-110"

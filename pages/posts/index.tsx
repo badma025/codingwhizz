@@ -13,6 +13,7 @@ type IndexProps = {
 const Posts = ({ posts }: IndexProps) => {
   return (
     <div>
+      
       <Header />
       {posts.map((post) => (
         <article

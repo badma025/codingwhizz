@@ -41,6 +41,29 @@ const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
 
   return (
     <div className='mb-10'>
+
+          <Head>
+        <title>{frontMatter.title} - CodingWhizz</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content={frontMatter.description}
+        />
+        <meta
+          name="keywords"
+          content={frontMatter?.keywords}
+        />
+        <meta
+          charSet='UTF-8'
+          content={frontMatter?.keywords}
+        />
+        <meta
+          name='author'
+          content="Alim Badmus"
+        />
+      
+      </Head>
+
       <Header />
 
       <article className="mt-10 ml-10 mr-10 sm:mx-16 md:mx-24 lg:mx-32 xl:mx-40 ">
