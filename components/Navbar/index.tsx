@@ -1,11 +1,9 @@
-import { ChevronDownIcon, MoonIcon, SunIcon } from '@heroicons/react/solid'
-import { signOut } from 'firebase/auth'
+import {  MoonIcon, SunIcon } from '@heroicons/react/solid'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { BsPerson } from 'react-icons/bs'
 import { auth } from '../../utilities/firebase'
 import BigLogo from '../Logos/BigLogo'
 
@@ -15,7 +13,6 @@ const Navbar = () => {
   useEffect(() => {
     setTheme('dark')
   }, [])
-  const [moreOptions, setMoreOptions] = useState(false)
   const [user] = useAuthState(auth)
 
   return (
@@ -45,29 +42,20 @@ const Navbar = () => {
             </h3>
           </Link>
 
+          <Link href="/resume.pdf">
+            <h3
+              className=" cursor-pointer transition duration-300 ease-in-out hover:scale-110"
+            >
+              Resume
+            </h3>
+          </Link>
+
           <Link href="https://codingwhizz.org/privacy-policy">
             <h3 className="cursor-pointer transition duration-300 ease-in-out hover:scale-110">
               Privacy
             </h3>
           </Link>
-          <div
-            className="dark:bg-[#1f283f] flex cursor-pointer items-center space-x-2 rounded-xl
-bg-[#E0D7C2] p-3 transition duration-300 ease-in-out
-         hover:scale-110"
-            //  @ts-ignore
-            onClick={() => {
-              if (!user) router.push('https://codingwhizz.org/portal')
-              else signOut(auth)
-            }}
-          >
-            <BsPerson size={30} />
-            <h2>
-              {user?.displayName}
-              {!user && 'Login'}
-            </h2>
-          </div>
         </div>
-
         <div className="flex">
           {theme === 'dark' ? (
             <MoonIcon

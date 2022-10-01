@@ -22,6 +22,17 @@ html {
     @apply text-[#3a6aff];
   }
 }
+ul {
+  @apply list-disc ml-4
+}
+li {
+  @apply ml-4
+}
+
+img {
+  @apply my-4
+}
+
 .remark-code-title {
   @apply rounded-t border border-b-0 border-gray-200 bg-gray-200 px-5 py-3 font-mono text-sm font-bold text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200;
 }

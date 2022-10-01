@@ -30,7 +30,7 @@ const Twitter = () => {
                   size={30}
                 />
             </Link>
-            <Link href="https://twitter-lamda.vercel.app">
+            <Link href="https://twitter-theta-1.netlify.app">
                 <MdExitToApp
                   className="mt-8 transition duration-300 hover:animate-bounce"
                   size={30}

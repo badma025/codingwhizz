@@ -1,0 +1,196 @@
+---
+title: CRUD using Nextjs, Firebase and NextUI
+description: Next.js is a server-side rendering framework based on React, which is search engine optimized. So let's build a to-do list using NextUI as our styling library and Firebase as our backend!
+date: '2022-09-04'
+image: '/images/bridge.jpg'
+---
+
+#### Tech Stack
+
+- [NextJS](https://nextjs.org/) for the frontend
+- [Firebase](https://firebase.google.com/) for the backend
+- [NextUI](https://nextui.org/) provides pre-styled components
+
+#### How to Create a Next App
+
+Let's start by creating a Next app:
+
+```sh
+npx create-next-app@latest crud
+```
+
+#### Adding Firebase
+
+Create a new project in [Firebase](https://firebase.google.com) then, install the dependency.
+
+```sh
+npm install firebase
+```
+
+Finally create a `/firebase.js` file and add the following code, replacing _xxx_ with your own project information:
+
+```js
+// firebase.js
+import { initializeApp } from 'firebase/app'
+import { getAnalytics } from 'firebase/analytics'
+import { getFirestore } from 'firebase/firestore'
+
+const firebaseConfig = {
+  apiKey: xxx,
+  authDomain: xxx,
+  projectId: xxx,
+  storageBucket: xxx,
+  messagingSenderId: xxx,
+  appId: xxx,
+  measurementId: xxx,
+}
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig)
+export const db = getFirestore(app)
+```
+
+#### Adding NextUI
+
+Install the dependency:
+
+```sh
+npm install @nextui-org/react
+```
+
+Go to `pages/_app.js` and add this:
+
+```jsx
+// 1. import `NextUIProvider` component
+import { NextUIProvider } from '@nextui-org/react'
+
+function MyApp({ Component, pageProps }) {
+  return (
+    // 2. Use at the root of your app
+    <NextUIProvider>
+      <Component {...pageProps} />
+    </NextUIProvider>
+  )
+}
+
+export default MyApp
+```
+
+Now we've got our dependencies set up, let's change the code in `/pages/index.js` to look like this:
+
+```jsx
+import { Button, Input, Spacer, Text } from "@nextui-org/react";
+
+export default function App() {
+  const [todo, setTodo] = useState('')
+  return (
+    <div
+      style={{
+        marginTop: '5rem',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+      }}
+    >
+      <Text
+        h1
+        size={60}
+        css={{
+          fontSize: '$2xl',
+          textGradient: '45deg, $blue600 -20%, $pink600 50%',
+          textAlign: 'center',
+        }}
+        weight="bold"
+      >
+        CRUD
+      </Text>
+      <Spacer y={2.5} />
+
+      <div
+        style={{
+          justifyContent: 'center',
+          margin: '0px auto',
+          display: 'flex',
+        }}
+      >
+        <Input
+          css={{
+            maxWidth: '400px',
+          }}
+          onChange={(event) => setTodo(event.target.value)}
+          underlined
+          initialValue="Add Item..."
+        />
+        <Spacer x={2} />
+        <Button shadow color="gradient" size="md" auto disabled={!todo}>
+          Add
+        </Button>
+      </div>
+    </div>
+  )
+}
+
+export default App
+```
+
+Your server (http://localhost:3000) should look like this:
+
+![image of NextJS code](https://user-images.githubusercontent.com/61887852/188324079-94e3e517-2849-4b4c-8215-b01d3d9dc1e1.png)
+
+We added a gradient CRUD text as well as an input component and an "Add" button that is disabled when there is no input.
+
+You will also notice that we have a `todo` variable. This will hold our data that will be used to add a task to our todo list.
+
+<br />
+
+Next, we need to add the functionality so that when we do press the "Add" button, our input is stored on Firestore.
+
+<br />
+
+Head over to "Firestore Database" on your Firebase project and click "Start Collection". Then, enter your collection ID as "todos" and click "Next".
+Then, press the "Auto-ID" button and enter a document with the field called "todo" and the value "Walk the dog".
+
+<br />
+
+Your Firebase console should look like this:
+
+![image](https://user-images.githubusercontent.com/61887852/189417835-cd6700a1-b73c-4a09-b795-66188af6782f.png)
+
+Now, press "Save".
+
+<br />
+
+If you go back to your server, you will notice that you aren't seeing any data. This is because we need to fetch the data from Firebase.
+
+<br />{' '}
+
+First, we need to create a state called `todos`. It will be an array containing all our data stored from Firebase.
+
+```jsx
+const [todos, setTodos] = useState([])
+```
+
+After that, replace the `Add` button code to look like this:
+
+```jsx
+<Button
+  shadow
+  color="gradient"
+  size="md"
+  auto
+  disabled={!todo}
+  onClick={async () => {
+    await addDoc(collection(db, 'todos'), {
+      task: todo,
+    })
+  }}
+>
+  Add
+</Button>
+```
+
+
+The `addDoc` function adds a document to our database in firestore. It takes two parameters:
+
+* The collection reference (`collection(db, 'todos')`) 
+* Our payload (the data we want to add to the database)
