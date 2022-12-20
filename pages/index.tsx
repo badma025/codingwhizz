@@ -19,7 +19,7 @@ const Home: NextPage = () => {
           name="description"
           content="A personal portfolio of Alim Badmus' coding projects"
         />
-      
+        <meta name="msvalidate.01" content="8DA4C81FDD0353D3383798420D85B453" />
       </Head>
 
       <main
